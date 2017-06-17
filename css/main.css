@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,700");
+@keyframes drawBefore {
+  0% {
+    width: 0%;
+    height: 0%; }
+  50% {
+    width: 100%;
+    height: 0%; }
+  100% {
+    width: 100%;
+    height: 100%; } }
+
+@keyframes drawAfter {
+  0% {
+    width: 0%;
+    height: 0%; }
+  50% {
+    width: 0%;
+    height: 100%; }
+  100% {
+    width: 100%;
+    height: 100%; } }
+
+@keyframes drawPlusVertical {
+  0% {
+    height: 0px;
+    margin-top: 12px;
+    transform: rotate(360deg); }
+  50% {
+    height: 24px;
+    margin-top: 0px;
+    transform: rotate(630deg); }
+  100% {
+    transform: rotate(720deg); } }
+
+@keyframes drawPlusHorizontal {
+  0% {
+    height: 0px;
+    margin-top: 12px;
+    transform: rotate(360deg); }
+  50% {
+    height: 24px;
+    margin-top: 0px;
+    transform: rotate(630deg); }
+  100% {
+    transform: rotate(810deg); } }
+
+@keyframes drawBefore {
+  0% {
+    width: 0%;
+    height: 0%; }
+  50% {
+    width: 100%;
+    height: 0%; }
+  100% {
+    width: 100%;
+    height: 100%; } }
+
+@keyframes drawAfter {
+  0% {
+    width: 0%;
+    height: 0%; }
+  50% {
+    width: 0%;
+    height: 100%; }
+  100% {
+    width: 100%;
+    height: 100%; } }
+
+@keyframes drawPlusVertical {
+  0% {
+    height: 0px;
+    margin-top: 12px;
+    transform: rotate(360deg); }
+  50% {
+    height: 24px;
+    margin-top: 0px;
+    transform: rotate(630deg); }
+  100% {
+    transform: rotate(720deg); } }
+
+@keyframes drawPlusHorizontal {
+  0% {
+    height: 0px;
+    margin-top: 12px;
+    transform: rotate(360deg); }
+  50% {
+    height: 24px;
+    margin-top: 0px;
+    transform: rotate(630deg); }
+  100% {
+    transform: rotate(810deg); } }
+
+/* line 3, scss/components/_textContainer.scss */
+.textContainer {
+  visibility: hidden;
+  position: absolute;
+  padding: 40px;
+  padding-bottom: 20px;
+  transition: top 1s ease-in-out, left 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 1; }
+  /* line 11, scss/components/_textContainer.scss */
+  .textContainer.hidden {
+    opacity: 0; }
+  /* line 15, scss/components/_textContainer.scss */
+  .textContainer.visible {
+    visibility: visible; }
+    /* line 18, scss/components/_textContainer.scss */
+    .textContainer.visible::before, .textContainer.visible::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0; }
+    /* line 28, scss/components/_textContainer.scss */
+    .textContainer.visible::before {
+      border-right: 2px solid #50463C;
+      border-top: 2px solid #50463C;
+      animation: drawBefore 2s ease-in-out; }
+    /* line 34, scss/components/_textContainer.scss */
+    .textContainer.visible::after {
+      border-left: 2px solid #50463C;
+      border-bottom: 2px solid #50463C;
+      animation: drawAfter 2s ease-in-out; }
+    /* line 40, scss/components/_textContainer.scss */
+    .textContainer.visible .expand {
+      width: 24px;
+      height: 24px;
+      z-index: 10;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      cursor: pointer;
+      transition: transform 1s ease-in-out; }
+      /* line 50, scss/components/_textContainer.scss */
+      .textContainer.visible .expand.active {
+        transform: rotate(45deg); }
+      /* line 54, scss/components/_textContainer.scss */
+      .textContainer.visible .expand::before, .textContainer.visible .expand::after {
+        content: "";
+        height: 24px;
+        width: 2px;
+        border-radius: 3px;
+        background: #50463C;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: 10px;
+        opacity: 0; }
+      /* line 68, scss/components/_textContainer.scss */
+      .textContainer.visible .expand::after {
+        transform: rotate(90deg); }
+      /* line 73, scss/components/_textContainer.scss */
+      .textContainer.visible .expand.plus::before {
+        opacity: 1;
+        animation: drawPlusVertical 1s ease-in-out; }
+      /* line 78, scss/components/_textContainer.scss */
+      .textContainer.visible .expand.plus::after {
+        opacity: 1;
+        animation: drawPlusHorizontal 1s ease-in-out;
+        transform: rotate(90deg); }
+    /* line 87, scss/components/_textContainer.scss */
+    .textContainer.visible h2 .visible {
+      color: #50463C; }
+    /* line 91, scss/components/_textContainer.scss */
+    .textContainer.visible h2 .hidden {
+      color: transparent; }
+    /* line 97, scss/components/_textContainer.scss */
+    .textContainer.visible p .visible {
+      color: #50463C; }
+    /* line 101, scss/components/_textContainer.scss */
+    .textContainer.visible p .hidden {
+      color: transparent; }
+
+/* line 4, scss/main.scss */
+html, body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #50463C;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400; }
+
+/* line 13, scss/main.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #C6C6AA; }
+
+/* line 19, scss/main.scss */
+#overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 2;
+  background: transparent url("../src/crt-screen.gif") top left repeat; }
+
+/* line 31, scss/main.scss */
+h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+/* line 38, scss/main.scss */
+#wrapper {
+  margin: 20px 40px; }

@@ -1,0 +1,106 @@
+@import 'modules/all';
+
+.textContainer {
+  visibility: hidden;
+  position: absolute;
+  padding: 40px;
+  padding-bottom: 20px;
+  transition: top 1s ease-in-out, left 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 1;
+  
+  &.hidden {
+    opacity: 0;
+  }
+  
+  &.visible {
+    visibility: visible;   
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    &::before {
+      border-right: 2px solid $primary;
+      border-top: 2px solid $primary;
+      animation: drawBefore 2s ease-in-out;
+    }
+
+    &::after {
+      border-left: 2px solid $primary;
+      border-bottom: 2px solid $primary;
+      animation: drawAfter 2s ease-in-out;
+    }
+    
+    .expand {
+      width: 24px;
+      height: 24px;
+      z-index: 10;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      cursor: pointer;
+      transition: transform 1s ease-in-out;
+      
+      &.active {
+        transform: rotate(45deg);
+      }
+      
+      &::before,
+      &::after {
+        content: "";
+        height: 24px;
+        width: 2px;
+        border-radius: 3px;
+        background: $primary;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: 10px;
+        opacity: 0;
+      }
+      
+      &::after {
+        transform: rotate(90deg);
+      }
+      
+      &.plus {
+        &::before {
+          opacity: 1;
+          animation: drawPlusVertical 1s ease-in-out;
+        }
+
+        &::after {
+          opacity: 1;
+          animation: drawPlusHorizontal 1s ease-in-out;
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    h2 {
+      .visible {
+        color: $primary;
+      }
+
+      .hidden {
+        color: transparent;
+      }
+    }
+
+    p {
+      .visible {
+        color: $primary;
+      }
+
+      .hidden {
+        color: transparent;
+      }
+    }
+  }
+}

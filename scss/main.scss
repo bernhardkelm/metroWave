@@ -1,0 +1,40 @@
+@import 'modules/all';
+@import 'components/all';
+
+html, body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $primary;
+  font-family: $font;
+  font-weight: 400;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: $background;
+}
+
+#overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 2;
+  background: transparent url('../src/crt-screen.gif') top left repeat;
+}
+
+h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#wrapper {
+  margin: 20px 40px;
+}
